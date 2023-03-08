@@ -11,3 +11,4 @@ streamlit.text('🥕Batido de col rizada, espinacas y rúcula')
 streamlit.text('🍉Huevo de gallinas camperas hervidas')
 
 streamlit.header('🍌🥭 Crea tu propio batido de frutas 🥝🍇')
+streamlit.dataframe(mi_lista_de_frutas)
