@@ -14,7 +14,7 @@ streamlit.text('🍉Huevo de gallinas camperas hervidas')
 streamlit.header('🍌🥭 Crea tu propio batido de frutas 🥝🍇')
 
 # Pongamos una lista de selección aquí para que puedan escoger la fruta que quieren incluir 
-streamlit.multiselect("Recoger algunas frutas:", list(mi_lista_de_frutas.index)) 
+streamlit.multiselect("Recoger algunas frutas:", list(mi_lista_de_frutas.index),['Avocado','Strawberries'])
 
 # Mostrar la tabla en la página.
 streamlit.dataframe(mi_lista_de_frutas)
