@@ -2,7 +2,7 @@
 import streamlit
 import pandas
 mi_lista_de_frutas = pandas.read_csv("https://uni-lab-files.s3.us-west-2.amazonaws.com/dabw/fruit_macros.txt")
-mi_lista_de_frutas = mi_lista_de_frutas.set_index('Frutas')
+mi_lista_de_frutas = mi_lista_de_frutas.set_index('Fruit')
 
 streamlit.title ('My Parents new healthy dinner')
 
