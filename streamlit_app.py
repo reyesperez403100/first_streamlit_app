@@ -17,4 +17,4 @@ streamlit.header('🍌🥭 Crea tu propio batido de frutas 🥝🍇')
 frutas_seleccionadas=streamlit.multiselect("Recoger algunas frutas:", list(mi_lista_de_frutas.index),['Avocado','Strawberries'])
 fruit_to_show = mi_lista_de_frutas.loc[frutas_seleccionadas]
 # Mostrar la tabla en la página.
-streamlit.dataframe(mi_lista_de_frutas)
+streamlit.dataframe(fruit_to_show)
