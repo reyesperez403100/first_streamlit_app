@@ -18,3 +18,7 @@ frutas_seleccionadas=streamlit.multiselect("Recoger algunas frutas:", list(mi_li
 fruit_to_show = mi_lista_de_frutas.loc[frutas_seleccionadas]
 # Mostrar la tabla en la página.
 streamlit.dataframe(fruit_to_show)
+
+import requests;
+fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon");
+streamlit.text(fruityvice_response);
