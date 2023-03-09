@@ -47,7 +47,7 @@ streamlit.write('The user entered',fruit_choice)
 # streamlit.dataframe(fruityvice_normalized)
 # streamlit.stop()
 
-my_cur = my_cnx.cursor()
+#my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
 mi_lista_de_datos = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
