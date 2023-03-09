@@ -19,8 +19,10 @@ fruit_to_show = mi_lista_de_frutas.loc[frutas_seleccionadas]
 # Mostrar la tabla en la página.
 streamlit.dataframe(fruit_to_show)
 
+streamlit.header("Fruityvice Fruit Advice!")
+
 import requests;
 fruityvice_response = requests.get("https://fruityvice.com/api/fruit/watermelon");
 streamlit.text(fruityvice_response);
 
-streamlit.header("Fruityvice Fruit Advice!")
+
