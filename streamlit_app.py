@@ -22,6 +22,7 @@ frutas_seleccionadas=streamlit.multiselect("Recoger algunas frutas:", list(mi_li
 fruit_to_show = mi_lista_de_frutas.loc[frutas_seleccionadas]
 # Mostrar la tabla en la página.
 streamlit.dataframe(fruit_to_show)
+
 def get_fruitvyce_data(this_fruit_choice):
       fruityvice_response = requests.get("https://fruityvice.com/api/fruit/" + this_fruit_choice);
       fruityvice_normalized = pandas.json_normalize(fruityvice_response.json())
@@ -45,12 +46,21 @@ streamlit.write('The user entered',fruit_choice)
 # output as a table
 # streamlit.dataframe(fruityvice_normalized)
 streamlit.stop()
-my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+
 my_cur = my_cnx.cursor()
 my_cur.execute("select * from fruit_load_list")
 mi_lista_de_datos = my_cur.fetchall()
 streamlit.header("The fruit load list contains:")
-streamlit.dataframe(mi_lista_de_datos)
+def get_fruit_load_list():
+      with my_cnx.cursor() as my_cur:
+                  my_cur.execute("select * from fruit_load_list")
+                  return my_cur.fetchall()
+if streamlit.button('Get Fruit Load List'):
+      my_cnx = snowflake.connector.connect(**streamlit.secrets["snowflake"])
+      my_data_rows = get_fruit_load_list()
+      streamlit.dataframe(my_data_rows)
+      
+#streamlit.dataframe(mi_lista_de_datos)
 
 add_my_fruit=streamlit.text_input ('What fruit would you like to add??')
 streamlit.write('The user entered',add_my_fruit)
